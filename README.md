@@ -1,18 +1,18 @@
-# Bellabeat Case Study- FitBit Smart Device Data Analysis
+# 📊 Bellabeat Case Study- FitBit Smart Device Data Analysis
 
-## Overview
+## 📌 Overview
 Bellabeat, a health focused company wants to focus on one product and analyze to gain insight into how customers are using their app. This Analysis helps to find the activity and sleep patterns and to identify oppurtunities for improvement of customner experience and to promote healthier habits among users.
 
-## Dataset
+## 📁 Dataset
 - Used from FitBit fitness Tracker Data available from Kaggle. It contains daily activity and health data from 30 eligible fitbit users who have consented to share their information.
 - The dataset spans from March 2016 to May 2016
 
-## Tools Used
+## ⚒️ Tools Used
 - Excel(for Exploration)
 - SQL(for Data Cleaning)
 - Tableau(for Visualization)
 
-## Key Insights
+## 📊Key Insights
 **Daily Activity Trend**: Users have engaged more rise in mid-April, showing a clear rise in active during that period.
 
 **Peak Activity Hours**: Shows activity throughout the day, where users are low during morning hours and reaches high point in the evening.
@@ -23,7 +23,7 @@ Bellabeat, a health focused company wants to focus on one product and analyze to
 
 **Average Daily Steps by Day of Week**: This shows that users have taken average of low steps during sundays and highest on saturdays. suggesting some challenges that motivates daily activity.
 
-## Visuals
+## 📊 Visuals
 Below are some charts created in Tableau:
 
 ### Daily Active Users
@@ -48,22 +48,22 @@ This chart highlights sleep patterns across different months in bar chart and li
 ![Average Daily Steps by Day of week](avg-steps-by-week.png)
 This chart shows the average number of steps taken on each day of the week in Bar chart. It reveals which days users are more active (e.g., weekdays vs weekends). Bellabeat can use this insight to encourage users to stay active on days with lower step counts.  
 
-## recommendations
+## ✅ recommendations
 Based on the visualizations. here are some recommendations for Bellabeat :
 - Encourage users to reach at least 10,000 steps daily by providing app notifications and small rewards.
 - Introduce sleep improvement programs since many users show low average sleep duration.  
 - Launch challenges or campaigns during peak activity hours to increase engagement.  
 - Personalize recommendations in the app based on individual sleep and activity patterns.  
 
-## Conclusion
+## 💡Conclusion
 This case study highlights how Bellabeat users engage with their daily activities, sleep and step counts. The analysis shows patterns in activity hours, average sleep duration, and diffrence in activities across weekends and weekdays. These insights suggest oppurtunities for bellabeat to improve user engagement and wellness offering personalized recommendations and targeted challenges. Overall, the findings can help guide Bellabeat in enhancing its products and creating a healthier lifestyle experience for its users.
 
-## Limitations
+## ⚠️ Limitations
 - This dataset represents small set of Bellabeat users, so findings may not related to all the users.
 - Some activity has missing values, which may effect overall accuracy.
 - The analysis focused on descriptive insights and did not include advanced predictive modeling.
 
-## Credits
+## 🙏 Credits
 Data source is from Bellabeat case study dataset from Kaggle / google capstone project.
 
 
