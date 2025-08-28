@@ -50,10 +50,10 @@ This chart shows the average number of steps taken on each day of the week in Ba
 
 ## recommendations
 Based on the visualizations. here are some recommendations for Bellabeat :
-1. Encourage users to reach at least 10,000 steps daily by providing app notifications and small rewards.  
-2. Introduce sleep improvement programs since many users show low average sleep duration.  
-3. Launch challenges or campaigns during peak activity hours to increase engagement.  
-4. Personalize recommendations in the app based on individual sleep and activity patterns.  
+- Encourage users to reach at least 10,000 steps daily by providing app notifications and small rewards.
+- Introduce sleep improvement programs since many users show low average sleep duration.  
+- Launch challenges or campaigns during peak activity hours to increase engagement.  
+- Personalize recommendations in the app based on individual sleep and activity patterns.  
 
 ## Conclusion
 This case study highlights how Bellabeat users engage with their daily activities, sleep and step counts. The analysis shows patterns in activity hours, average sleep duration, and diffrence in activities across weekends and weekdays. These insights suggest oppurtunities for bellabeat to improve user engagement and wellness offering personalized recommendations and targeted challenges. Overall, the findings can help guide Bellabeat in enhancing its products and creating a healthier lifestyle experience for its users.
