@@ -19,9 +19,9 @@ Bellabeat, a health focused company wants to focus on one product and analyze to
 
 **Average Sleep Hours**: Shows average sleep hours changes from day to day where users are averaged with 6-7 hours of sleep which is slightly low for adults.
 
-**Monthlty Sleep patterns**: On average, users spend more time in bed than the actual hours they sleep. This shows that users may not be sleeping wfficiently and could experience restless or interuppted sleep.
+**Monthly Sleep patterns**: On average, users spend more time in bed than the actual hours they sleep. This shows that users may not be sleeping efficiently and could experience restless or interuppted sleep.
 
-**Average Daily Steps by Day of Week**: This shows that users have taken average of  some cghalow steps during sundays and highest on saturdays. suggesting some challenges that motivates daily activity.
+**Average Daily Steps by Day of Week**: This shows that users have taken average of low steps during sundays and highest on saturdays. suggesting some challenges that motivates daily activity.
 
 ## Visuals
 Below are some charts created in Tableau:
@@ -56,7 +56,7 @@ Based on the visualizations. here are some recommendations for Bellabeat :
 4. Personalize recommendations in the app based on individual sleep and activity patterns.  
 
 ## Conclusion
-This case study highlights how Bellabeat users engage with their daily activities, sleep ans step counts. The analysis shows patterns in activity hours, average sleep duration, and diffrences in activities across weekends and weekdays. These insights suggest oppurtunities for bellabeat to improve user engagement and wellness offering personalized recommendations and targeted challenges. Overall, the findings can help guide Bellabeat in enhancing its products and creating a healthier lifestyle experience for its users.
+This case study highlights how Bellabeat users engage with their daily activities, sleep and step counts. The analysis shows patterns in activity hours, average sleep duration, and diffrence in activities across weekends and weekdays. These insights suggest oppurtunities for bellabeat to improve user engagement and wellness offering personalized recommendations and targeted challenges. Overall, the findings can help guide Bellabeat in enhancing its products and creating a healthier lifestyle experience for its users.
 
 ## Limitations
 - This dataset represents small set of Bellabeat users, so findings may not related to all the users.
