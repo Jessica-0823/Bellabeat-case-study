@@ -23,21 +23,43 @@ Below are some charts created in Tableau:
 
 ### Daily Active Users
 ![Daily Active Users](daily-active-users-trend.png)
+This chart shows the overall trend of active users in line chart. We can see fluctuations from up to down in activity. Tracking this helps to identify  whether the user engagements is increasing over time and highlights day with high or low activity.
 
 ### Peak Activity Hours
 ![Peak Activity Users](peak-activity-hours.png)
+This chart shows the average number of steps from hour of day in line chart. The peaks indicate when most users are active (for example, late morning and early evening). These insights can guide Bellabeat to schedule reminders or challenges during the most active hours.  
+
 
 ### Average Sleep Duration
 ![Average Sleep Hours](average-sleep-duration.png)
+This chart explains the average sleep hours of users from day to day in line chart. Many users sleep less than the average sleep hours.Short sleep duration can affect health and wellness, indicating that Bellabeat could focus on features that improve sleep quality.  
+
 
 ### Average Monthly Sleep Patterns
 ![Average Monthly Sleep Patterns](avg-sleep-vs-time-in-bed.png)
+This chart highlights sleep patterns across different months in bar chart and line chart.The line chart represents time in bed and bar chart represents avg sleep hours. Understanding these trends can help Bellabeat design seasonal wellness campaigns (e.g., sleep improvement tips during stressful months).
 
 ### Average Daily Steps by Day of Week
 ![Average Daily Steps by Day of week](avg-steps-by-week.png)
+This chart shows the average number of steps taken on each day of the week in Bar chart. It reveals which days users are more active (e.g., weekdays vs weekends). Bellabeat can use this insight to encourage users to stay active on days with lower step counts.  
 
+## recommendations
+Based on the visualizations. here are some recommendations for Bellabeat :
+1. Encourage users to reach at least 10,000 steps daily by providing app notifications and small rewards.  
+2. Introduce sleep improvement programs since many users show low average sleep duration.  
+3. Launch challenges or campaigns during peak activity hours to increase engagement.  
+4. Personalize recommendations in the app based on individual sleep and activity patterns.  
 
+## Conclusion
+This case study highlights how Bellabeat users engage with their daily activities, sleep ans step counts. The analysis shows patterns in activity hours, average sleep duration, and diffrences in activities across weekends and weekdays. These insights suggest oppurtunities for bellabeat to improve user engagement and wellness offering personalized recommendations and targeted challenges. Overall, the findings can help guide Bellabeat in enhancing its products and creating a healthier lifestyle experience for its users.
 
+## Limitations
+- This dataset represents small set of Bellabeat users, so findings may not related to all the users.
+- Some activity has missing values, which may effect overall accuracy.
+- The analysis focused on descriptive insights and did not include advanced predictive modeling.
+
+## Credits
+Data source is from Bellabeat case study dataset from Kaggle / google capstone project.
 
 
 
