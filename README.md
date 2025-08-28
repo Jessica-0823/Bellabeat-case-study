@@ -18,6 +18,9 @@ Bellabeat, a health focused company wants to focus on one product and analyze to
 **Average Sleep Hours**: Shows average sleep hours changes from day to day where users are averaged with 6-7 hours of sleep which is slightly low for adults.
 **Monthlty Sleep patterns**: On average, users spend more time in bed than the actual hours they sleep. This shows that users may not be sleeping wfficiently and could experience restless or interuppted sleep.
 **Average Daily Steps by Day of Week**: This shows that users have taken average of  some cghalow steps during sundays and highest on saturdays. suggesting some challenges that motivates daily activity.
+## Visuals
+Below are some charts created in Tableau:
+
 
 
 
