@@ -21,22 +21,20 @@ Bellabeat, a health focused company wants to focus on one product and analyze to
 ## Visuals
 Below are some charts created in Tableau:
 
+### Daily Active Users
+![Daily Active Users](daily-active-users-trend-png)
 
+### Peak Activity Hours
+![Peak Activity Users](peak-activity-hours-png)
 
+### Average Sleep Duration
+![Average Sleep Hours](average-sleep-duration-png)
 
+### Average Monthly Sleep Patterns
+![Average Monthly Sleep Patterns](avg-sleep-vs-time-in-bed)
 
-
-
-
-
-
-
-
-
-
-
-
-
+### Average Daily Steps by Day of Week
+![Average Daily Steps by Day of week](avg-steps-by-week)
 
 
 
