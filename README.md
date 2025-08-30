@@ -1,7 +1,7 @@
 # 📊 Bellabeat Case Study- FitBit Smart Device Data Analysis
 
 ## 📌 Overview
-Bellabeat, a health focused company wants to focus on one product and analyze to gain insight into how customers are using their app. This Analysis helps to find the activity and sleep patterns and to identify oppurtunities for improvement of customner experience and to promote healthier habits among users.
+Bellabeat, a health focused company wants to focus on one product and analyze to gain insight into how customers are using their app. This Analysis helps to find the activity and sleep patterns and to identify opportunities for improvement of customner experience and to promote healthier habits among users.
 
 ## 📁 Dataset
 - Used from FitBit fitness Tracker Data available from Kaggle. It contains daily activity and health data from 30 eligible fitbit users who have consented to share their information.
