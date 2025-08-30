@@ -23,6 +23,13 @@ Bellabeat, a health focused company wants to focus on one product and analyze to
 
 **Average Daily Steps by Day of Week**: This shows that users have taken average of low steps during sundays and highest on saturdays. suggesting some challenges that motivates daily activity.
 
+## SQL Queries
+![Daily Active Users](daily_active_users.sql)
+![Average Sleep Duration](avg_sleep_duration.sql)
+![Peak Activity Hours](peak_activity_hours.sql)
+![Average Daily Steps by Day of week](avg_steps_by_day_of_week.sql)
+![Average Monthly Sleep Patterns](avg_sleep_vs_time_in_bed.sql)
+
 ## 📊 Visuals
 Below are some charts created in Tableau:
 
