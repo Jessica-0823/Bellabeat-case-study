@@ -16,7 +16,7 @@
 Bellabeat, a health-focused company, aims to better understand how users engage with their products. This case study analyzes Fitbit smart device data to uncover activity and sleep patterns, providing insights to enhance customer experience and promote healthier habits.
 
 ## 📁 Dataset
-- Data source: https://www.kaggle.com/datasets/arashnic/fitbit?utm_source=chatgpt.com from Kaggle.
+- Data source: https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
 - Contains daily activity and health data from 30 eligible FitBit users who consented to share their information.
 - Timeframe: March 2016 – May 2016
 
@@ -134,7 +134,7 @@ These findings help Bellabeat identify where users struggle with insufficient sl
 - The analysis focused on descriptive insights and did not include advanced predictive modeling.
 
 ## 🙏 Credits
-Data source 
+Data source : https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle
 Project inspired by the Google Data Analytics Capstone Case Study.
 
 
