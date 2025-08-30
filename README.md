@@ -1,51 +1,71 @@
 # 📊 Bellabeat Case Study- FitBit Smart Device Data Analysis
 
+## Table of Contents
+- Overview
+- Dataset
+- Tools Used
+- Key Insights
+- SQL Queries
+- Visuals
+- Recommendations
+- Conclusion
+- Limitations
+- Credits and Acknowledge
+
 ## 📌 Overview
 Bellabeat, a health-focused company, aims to better understand how users engage with their products. This case study analyzes Fitbit smart device data to uncover activity and sleep patterns, providing insights to enhance customer experience and promote healthier habits.
 
 ## 📁 Dataset
-- Used from FitBit fitness Tracker Data available from Kaggle. It contains daily activity and health data from 30 eligible fitbit users who have consented to share their information.
-- The dataset spans from March 2016 to May 2016
+- Data source: https://www.kaggle.com/datasets/arashnic/fitbit?utm_source=chatgpt.com from Kaggle.
+- Contains daily activity and health data from 30 eligible FitBit users who consented to share their information.
+- Timeframe: March 2016 – May 2016
 
 ## 🛠️ Tools Used
 - Excel(for Exploration)
-- SQL(for Data Cleaning)
-- Tableau(for Visualization)
+- SQL(for Data Cleaning and Transformation)
+- Tableau(for Visualization and Dashboards)
 
-## 📊Key Insights
-**Daily Activity Trend**: Users have engaged more rise in mid-April, showing a clear rise in active during that period.
+## 📊 Key Insights
+**Daily Activity Trend**: Users show a rise in activity during mid-April, highlighting potential seasonal or campaign-driven engagement.
 
-**Peak Activity Hours**: Shows activity throughout the day, where users are low during morning hours and reaches high point in the evening.
+**Peak Activity Hours**: Activity is lowest in the morning and peaks in the evening, showing preferred active hours.
 
-**Average Sleep Hours**: Shows average sleep hours changes from day to day where users are averaged with 6-7 hours of sleep which is slightly low for adults.
+**Average Sleep Hours**: Users average 6–7 hours of sleep, which is below the recommended 7–9 hours for adults.
 
-**Monthly Sleep patterns**: On average, users spend more time in bed than the actual hours they sleep. This shows that users may not be sleeping efficiently and could experience restless or interrupted sleep.
+**Monthly Sleep patterns**: Users spend more time in bed than actual hours asleep, suggesting inefficiency and possible restless sleep.
 
-**Average Daily Steps by Day of Week**: This shows that users have taken average of low steps during sundays and highest on saturdays. suggesting some challenges that motivates daily activity.
+**Average Daily Steps by Day of Week**: Users take the fewest steps on Sundays and the most on Saturdays, indicating weekend activity patterns.
 
 ## 🗄️ SQL Queries
 ### 1. Daily Active Users Trend
 ```sql
-SELECT COUNT(DISTINCT Id) AS daily_users, activity_date FROM affable-hydra-468812-d9.daily_activity.dailyActivity
+SELECT COUNT(DISTINCT Id) AS daily_users, 
+       activity_date 
+FROM affable-hydra-468812-d9.daily_activity.dailyActivity
 GROUP BY activity_date
 ORDER BY activity_date;
+
 ```
- ➡️The result of this query shows that how many unique users were active each day.
- ➡️By grouping the data by activity_date ,and counting distinct users, we can measure daily user participation in the dataset. This helps identify user engagement trends over time by tracking daily active users.
+ ➡️ The result of this query shows that how many unique users were active each day.
+ ➡️ 
+ By grouping the data by activity_date ,and counting distinct users, we can measure daily user participation in the dataset. This helps identify user engagement trends over time by tracking daily active users.
 
 ### 2. Peak Activity Hours
 ```sql
-SELECT hour, ROUND(AVG(step_total), 2) AS avg_steps
- FROM affable-hydra-468812-d9.hourly_steps.hourlySteps
- GROUP BY hour
- ORDER BY hour;
+SELECT hour, 
+       ROUND(AVG(step_total), 2) AS avg_steps
+FROM affable-hydra-468812-d9.hourly_steps.hourlySteps
+GROUP BY hour
+ORDER BY hour;
 ```
 ➡️ The result of this query shows the average number of steps taken during each hour of the day, helping to identify peak activity hours.
 ➡️ This helps in understanding when users are most active during the day, useful for finding patterns in daily activity.
 
 ### 3. Average Sleep Duration
 ```sql
-SELECT sleep_day, ROUND(AVG((total_minutes_asleep) / 60), 2) AS avg_sleep_hours FROM affable-hydra-468812-d9.sleep_day.sleepDay
+SELECT sleep_day, 
+       ROUND(AVG(total_minutes_asleep / 60), 2) AS avg_sleep_hours
+FROM affable-hydra-468812-d9.sleep_day.sleepDay
 GROUP BY sleep_day
 ORDER BY sleep_day;
 ```
@@ -54,16 +74,20 @@ ORDER BY sleep_day;
 
 ### 4. Average Monthly Patterns
 ```sql
-SELECT ROUND(AVG(total_minutes_asleep)) / 60 AS avg_sleep, ROUND(AVG(total_time_in_bed)) / 60 AS avg_time_in_bed FROM affable-hydra-468812-d9.sleep_day.sleepDay;
+SELECT ROUND(AVG(total_minutes_asleep)) / 60 AS avg_sleep, 
+       ROUND(AVG(total_time_in_bed)) / 60 AS avg_time_in_bed
+FROM affable-hydra-468812-d9.sleep_day.sleepDay;
 ```
 ➡️ The result of this query compares the average sleep duration in hours with the average time spent in bed in hours.
 ➡️ This helps identify the difference between time spent in bed and actual sleep duration, which can reveal insights about sleep quality.
 
 ### 5. Average Steps By Day of Week
 ```sql
-SELECT FORMAT_DATE('%A', DATE(activity_date)) AS weekday, ROUND(avg(total_steps)) AS avg_steps FROM affable-hydra-468812-d9.daily_activity.dailyActivity
+SELECT FORMAT_DATE('%A', DATE(activity_date)) AS weekday, 
+       ROUND(AVG(total_steps)) AS avg_steps
+FROM affable-hydra-468812-d9.daily_activity.dailyActivity
 GROUP BY weekday
-ORDER BY avg_steps desc;
+ORDER BY avg_steps DESC;
 ```
 ➡️ The result of this query shows the average number of steps taken on each day of the week, ordered from the most active day to the least.
 ➡️ This helps understand which weekdays users are most active and which days show lower activity, useful for identifying behavioral patterns.
@@ -95,10 +119,11 @@ This chart shows the average number of steps taken on each day of the week in Ba
 
 ## ✅ Recommendations
 Based on the visualizations. here are some recommendations for Bellabeat :
-- Encourage users to reach at least 10,000 steps daily by providing app notifications and small rewards.
-- Introduce sleep improvement programs since many users show low average sleep duration.  
-- Launch challenges or campaigns during peak activity hours to increase engagement.  
-- Personalize recommendations in the app based on individual sleep and activity patterns.  
+- Encourage users to reach 10,000+ steps daily using app notifications and small rewards.
+- Introduce sleep improvement programs, since users sleep below recommended levels.
+- Launch challenges during peak activity hours (late morning, evening) to maximize engagement.
+- Provide personalized recommendations based on each user’s activity and sleep trends.
+- Project inspired by the Google Data Analytics Capstone Case Study.
 
 ## 💡Conclusion
 These findings help Bellabeat identify where users struggle with insufficient sleep and activity and highlight opportunities to improve engagement through personalized programs, challenges, and habit-forming nudges.
@@ -109,8 +134,8 @@ These findings help Bellabeat identify where users struggle with insufficient sl
 - The analysis focused on descriptive insights and did not include advanced predictive modeling.
 
 ## 🙏 Credits
-Data source is from Bellabeat case study dataset from Kaggle / google capstone project.
-
+Data source 
+Project inspired by the Google Data Analytics Capstone Case Study.
 
 
 
