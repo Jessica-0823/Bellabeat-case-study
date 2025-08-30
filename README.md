@@ -125,7 +125,7 @@ These findings help Bellabeat identify where users struggle with insufficient sl
 - Some activity has missing values, which may affect overall accuracy.
 - The analysis focused on descriptive insights and did not include advanced predictive modeling.
 
-## 🙏 Credits and Acknowledge
+## 🙏 Credits and Acknowledgement
 - Data source : https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
 - Project inspired by the Google Data Analytics Capstone Case Study.
 
