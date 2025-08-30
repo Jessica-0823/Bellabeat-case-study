@@ -45,10 +45,8 @@ SELECT COUNT(DISTINCT Id) AS daily_users,
 FROM affable-hydra-468812-d9.daily_activity.dailyActivity
 GROUP BY activity_date
 ORDER BY activity_date;
-
 ```
-➡ The result of this query shows that how many unique users were active each day. 
-➡ By grouping the data by activity_date ,and counting distinct users, we can measure daily user participation in the dataset. This helps identify user engagement trends over time by tracking daily active users.
+➡ The result of this query shows that how many unique users were active each day. By grouping the data by activity_date ,and counting distinct users, we can measure daily user participation in the dataset. This helps identify user engagement trends over time by tracking daily active users.
 
 ### 2. Peak Activity Hours
 ```sql
@@ -58,8 +56,7 @@ FROM affable-hydra-468812-d9.hourly_steps.hourlySteps
 GROUP BY hour
 ORDER BY hour;
 ```
-➡The result of this query shows the average number of steps taken during each hour of the day, helping to identify peak activity hours.
-➡This helps in understanding when users are most active during the day, useful for finding patterns in daily activity.
+➡The result of this query shows the average number of steps taken during each hour of the day, helping to identify peak activity hours. This helps in understanding when users are most active during the day, useful for finding patterns in daily activity.
 
 ### 3. Average Sleep Duration
 ```sql
@@ -69,8 +66,7 @@ FROM affable-hydra-468812-d9.sleep_day.sleepDay
 GROUP BY sleep_day
 ORDER BY sleep_day;
 ```
-➡The result of this query shows the average sleep duration in hours for each day, allowing us to track daily sleep patterns.                          
-➡This helps analyze how much users sleep on average each day, which is important for understanding overall health and rest trends.
+➡The result of this query shows the average sleep duration in hours for each day, allowing us to track daily sleep patterns. This helps analyze how much users sleep on average each day, which is important for understanding overall health and rest trends.
 
 ### 4. Average Monthly Patterns
 ```sql
@@ -78,8 +74,7 @@ SELECT ROUND(AVG(total_minutes_asleep)) / 60 AS avg_sleep,
        ROUND(AVG(total_time_in_bed)) / 60 AS avg_time_in_bed
 FROM affable-hydra-468812-d9.sleep_day.sleepDay;
 ```
-➡ The result of this query compares the average sleep duration in hours with the average time spent in bed in hours.        
-➡ This helps identify the difference between time spent in bed and actual sleep duration, which can reveal insights about sleep quality.
+➡ The result of this query compares the average sleep duration in hours with the average time spent in bed in hours. This helps identify the difference between time spent in bed and actual sleep duration, which can reveal insights about sleep quality.
 
 ### 5. Average Steps By Day of Week
 ```sql
@@ -89,8 +84,7 @@ FROM affable-hydra-468812-d9.daily_activity.dailyActivity
 GROUP BY weekday
 ORDER BY avg_steps DESC;
 ```
-➡ The result of this query shows the average number of steps taken on each day of the week, ordered from the most active day to the least.
-➡ This helps understand which weekdays users are most active and which days show lower activity, useful for identifying behavioral patterns.
+➡ The result of this query shows the average number of steps taken on each day of the week, ordered from the most active day to the least. This helps understand which weekdays users are most active and which days show lower activity, useful for identifying behavioral patterns.
 
 ## 📊 Visuals
 Below are some charts created in Tableau:
