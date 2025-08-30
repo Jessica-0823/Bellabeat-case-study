@@ -23,12 +23,42 @@ Bellabeat, a health focused company wants to focus on one product and analyze to
 
 **Average Daily Steps by Day of Week**: This shows that users have taken average of low steps during sundays and highest on saturdays. suggesting some challenges that motivates daily activity.
 
-## SQL Queries
-![Daily Active Users](daily_active_users.sql)
-![Average Sleep Duration](avg_sleep_duration.sql)
-![Peak Activity Hours](peak_activity_hours.sql)
-![Average Daily Steps by Day of week](avg_steps_by_day_of_week.sql)
-![Average Monthly Sleep Patterns](avg_sleep_vs_time_in_bed.sql)
+## SQl Queries
+### 1. Daily Active Users Trend
+```sql
+select count(distinct Id) as daily_users, activity_date from affable-hydra-468812-d9.daily_activity.dailyActivity
+group by activity_date
+order by activity_date;
+```
+
+### 2. Peak Activity Hours
+```sql
+select hour,round(avg(step_total), 2) as avg_steps
+ from affable-hydra-468812-d9.hourly_steps.hourlySteps
+ group by hour
+ order by hour;
+```
+
+### 3. Average Sleep Duration
+```sql
+select sleep_day, round(avg((total_minutes_asleep) / 60), 2) as avg_sleep_hours from affable-hydra-468812-d9.sleep_day.sleepDay
+group by sleep_day
+order by sleep_day;
+```
+
+### 4. Average Monthly Patterns
+```sql
+select round(avg(total_minutes_asleep)) / 60 as avg_sleep, round(avg(total_time_in_bed)) / 60 as avg_time_in_bed from affable-hydra-468812-d9.sleep_day.sleepDay;
+```
+
+### 5. Average Steps By Day of Week
+```sql
+select format_date('%A', date(activity_date)) as weekday, round(avg(total_steps)) as avg_steps from affable-hydra-468812-d9.daily_activity.dailyActivity
+group by weekday
+order by avg_steps desc;
+```
+
+
 
 ## 📊 Visuals
 Below are some charts created in Tableau:
