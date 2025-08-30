@@ -128,8 +128,9 @@ These findings help Bellabeat identify where users struggle with insufficient sl
 - The analysis focused on descriptive insights and did not include advanced predictive modeling.
 
 ## 🙏 Credits
-Data source : https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle
-Project inspired by the Google Data Analytics Capstone Case Study.
+- Data source : https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
+- Project inspired by the Google Data Analytics Capstone Case Study.
+
 
 
 
