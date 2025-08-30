@@ -1,4 +1,3 @@
-
 # 📊 Bellabeat Case Study- FitBit Smart Device Data Analysis
 
 ## Table of Contents
