@@ -41,7 +41,7 @@ Source: https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
 **Calories Burned Per Day** : Calories burned per day is the total amount of energy your body uses in 24 hours. This includes the energy needed to keep your body alive and functioning.
 **METs Per Week** : METs per week measure the total energy spent on physical activity over seven days. They are calculated by multiplying the MET value of an activity by the time spent and summing across the week. 
 **Weekly Activity minutes by intensity zone** :  shows how much time a person spends in light, moderate and vigorous activity levels. 
-
+**Correlation of steps, calories and distance** :A bar chart of correlation coefficients shows the strength and direction of relationships between steps, calories burned, and distance.
 
 
 
@@ -54,43 +54,141 @@ GROUP BY Id
 ORDER BY avg_daily_steps DESC; 
 ```
 ➡ TShows the average steps per user as a baseline activity level. Most users fall short of the 10,000-step goal, suggesting room for increased daily movement.
-### 2. Peak Activity Hours
+### 2. Step Goals
 ```sql
-SELECT hour, 
-       ROUND(AVG(step_total), 2) AS avg_steps
-FROM affable-hydra-468812-d9.hourly_steps.hourlySteps
+SELECT Id, COUNTIF(TotalSteps >= 10000) * 100.0 / COUNT(*) AS daily_goal FROM affable-hydra-468812-d9.daily_data.dailyactivity
+GROUP BY Id
+ORDER BY daily_goal DESC;
+```
+➡ Compares users’ average steps with a 10k reference line. Many users don’t meet this benchmark, indicating potential for step challenges or motivational features.
+
+### 3. Correlation Between Steps, Calories, and Distance
+```sql
+SELECT Id, 'steps_vs_calories' AS correlation_type, CORR(TotalSteps, Calories) AS corr_value FROM affable-hydra-468812-d9.daily_data.dailyactivity
+GROUP BY Id
+
+UNION ALL
+
+SELECT Id, 'steps_vs_distance' AS correlation_type, CORR(TotalSteps, TotalDistance) AS corr_value FROM affable-hydra-468812-d9.daily_data.dailyactivity
+GROUP BY Id 
+
+UNION ALL
+
+SELECT Id, 'calories_vs_distance' AS correlation_type, CORR(Calories, TotalDistance) AS corr_value FROM affable-hydra-468812-d9.daily_data.dailyactivity
+GROUP BY Id;
+```
+➡ Displays correlation values between steps, calories, and distance. Strong positive correlations confirm that higher steps also lead to more calories burned and longer distances
+
+### 4. Active vs. Sedentary Time
+```sql
+SELECT AVG(SedentaryMinutes) AS avg_sedentary, AVG(VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes) as avg_active FROM affable-hydra-468812-d9.daily_data.dailyactivity;
+```
+➡ Scatterplot of active vs. sedentary minutes. Users with long sedentary times show lower activity, highlighting the need for movement breaks during the day.
+
+### 5. Sleep and Sedentary Thresholds
+```sql
+SELECT Id, ROUND(AVG(TotalSteps), 2) AS avg_steps,
+ROUND(AVG(Calories), 2) AS avg_calories,
+ROUND(AVG(TotalMinutesAsleep), 2) AS avg_sleep_minutes,
+ROUND(AVG(SedentaryMinutes), 2) AS avg_sedentary_minutes,
+CASE WHEN AVG(TotalSteps) >= 10000 THEN 'Highly Active'
+     WHEN AVG(Totalsteps) BETWEEN 5000 AND 9999 THEN 'Moderately Active'
+     else 'Sedentary'
+     END AS activity_level,
+CASE WHEN AVG(TotalMinutesAsleep) BETWEEN 420 AND 480 THEN 'Good Sleep'
+     WHEN AVG(TotalMinutesAsleep) < 420 THEN 'Sleep Deprived'
+     ELSE 'Long Sleeper'
+     END AS sleep_quality,
+CASE WHEN AVG(SedentaryMinutes) > 720 THEN 'High Risk'
+    WHEN AVG(SedentaryMinutes) BETWEEN 480 AND 720 THEN 'Moderate Risk'
+    ELSE 'Low Risk'
+    END AS sedentary_risk
+ FROM  affable-hydra-468812-d9.daily_data.dailyactivity
+GROUP BY ID;
+```
+➡ Compares sleep hours with sedentary time. Balanced sleep (7–9 hrs) aligns with healthier activity, while excessive sitting links to higher health risks.
+
+### 6. Sleep Patterns
+```sql
+SELECT Id,
+ROUND(AVG(TotalMinutesAsleep) / 60, 2) AS avg_sleep,
+ROUND(AVG(TotalTimeInBed) / 60, 2) AS avg_time_in_bed FROM affable-hydra-468812-d9.daily_data.dailyactivity
+GROUP BY Id;
+```
+➡ Dual-axis chart of time in bed vs. sleep duration. Some users show inefficiency (time in bed but less sleep), pointing to poor sleep quality.
+
+### 7. Weekend vs. Weekday Activity of Users Who Reached The Goal Or Not
+```sql
+SELECT CASE WHEN EXTRACT(DAYOFWEEK FROM ActivityDate) IN(1,7) THEN 'Weekend'
+ELSE 'Weekday'
+END AS Day_Type,
+COUNT(*) AS Days_Count,
+ROUND(AVG(TotalSteps), 2) AS Avg_Steps,
+ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM affable-hydra-468812-d9.daily_data.dailyactivity
+WHERE TotalSteps >= 10000), 2) AS Percent_of_Goal_Days FROM affable-hydra-468812-d9.daily_data.dailyactivity
+WHERE TotalSteps >= 10000
+GROUP BY Day_Type
+ORDER BY 
+CASE Day_Type
+WHEN 'Weekday' THEN 1
+WHEN 'Weekend' THEN 2
+END;
+```
+➡ Groups steps by day of the week. Shows whether the people who are reaching the goal daily are also active in weekends or weekdays Activity tends to increase on weekends, suggesting that leisure time boosts movement.
+
+### 8. Peak Activity per User
+```sql
+SELECT  EXTRACT(HOUR FROM ActivityHour) AS activity_hour
+ROUND(AVG(StepTotal), 2) AS avg_steps FROM affable-hydra-468812-d9.hour_data.hourly_activity
+GROUP BY activity_hour
+ORDER BY activity_hour;
+```
+➡Shows peak engagement hours, with the highest activity around 6 PM. This suggests evenings are key times for targeted reminders or app engagement.
+
+### 9. Calories Burned per Day
+```sql
+SELECT EXTRACT(HOUR FROM ActivityHour) AS hour,
+ROUND(AVG(Calories), 2) AS avg_calories FROM affable-hydra-468812-d9.hour_data.hourly_activity
 GROUP BY hour
-ORDER BY hour;
+ORDER BY hour
 ```
-➡The result of this query shows the average number of steps taken during each hour of the day, helping to identify peak activity hours. This helps in understanding when users are most active during the day, useful for finding patterns in daily activity.
+➡ Displays total daily calories burned. Variations reflect differences in user activity and can help tailor personalized activity goals.
 
-### 3. Average Sleep Duration
+### 10. METs per Week
 ```sql
-SELECT sleep_day, 
-       ROUND(AVG(total_minutes_asleep / 60), 2) AS avg_sleep_hours
-FROM affable-hydra-468812-d9.sleep_day.sleepDay
-GROUP BY sleep_day
-ORDER BY sleep_day;
-```
-➡The result of this query shows the average sleep duration in hours for each day, allowing us to track daily sleep patterns. This helps analyze how much users sleep on average each day, which is important for understanding overall health and rest trends.
+SELECT Id, EXTRACT(WEEK FROM ActivityMinute) AS week_activity, 
+SUM(METs) AS weekly_met_minutes,
+SUM(METs) / (7*1440) AS mets_per_min_in_week FROM affable-hydra-468812-d9.minute_data.minute_activity
+GROUP BY Id, week_activity
+ORDER BY mets_per_min_in_week DESC;
 
-### 4. Average Monthly Patterns
-```sql
-SELECT ROUND(AVG(total_minutes_asleep)) / 60 AS avg_sleep, 
-       ROUND(AVG(total_time_in_bed)) / 60 AS avg_time_in_bed
-FROM affable-hydra-468812-d9.sleep_day.sleepDay;
 ```
-➡ The result of this query compares the average sleep duration in hours with the average time spent in bed in hours. This helps identify the difference between time spent in bed and actual sleep duration, which can reveal insights about sleep quality.
+➡ Summarizes weekly energy expenditure (METs). Most users stay below the 500–1000 MET-minutes recommended for good health, signaling underactivity.
 
-### 5. Average Steps By Day of Week
+### 11. Weekly Activity Minutes by Intensity Zone
 ```sql
-SELECT FORMAT_DATE('%A', DATE(activity_date)) AS weekday, 
-       ROUND(AVG(total_steps)) AS avg_steps
-FROM affable-hydra-468812-d9.daily_activity.dailyActivity
-GROUP BY weekday
-ORDER BY avg_steps DESC;
+SELECT Id, DATE(ActivityMinute) AS activity_date,
+ 1440 - COUNT(*) + SUM(CASE WHEN METs < 3 THEN 1 ELSE 0 END) AS light_minutes,
+SUM(CASE WHEN METs BETWEEN 3 AND 6 THEN 1 ELSE 0 END) AS moderate_minutes,
+SUM(CASE WHEN METs > 6 THEN 1 ELSE 0 END) AS vigorous_minutes FROM affable-hydra-468812-d9.minute_data.minute_activity
+GROUP BY Id, activity_date
+ORDER BY activity_date;
 ```
-➡ The result of this query shows the average number of steps taken on each day of the week, ordered from the most active day to the least. This helps understand which weekdays users are most active and which days show lower activity, useful for identifying behavioral patterns.
+➡ Breaks activity into light, moderate, and vigorous zones. Many users spend more time in light activity, falling short of moderate-to-vigorous levels recommended by health guidelines.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 📊 Visuals
 Below are some charts created in Tableau:
