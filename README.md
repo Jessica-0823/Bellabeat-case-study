@@ -47,16 +47,13 @@ Source: https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
 
 
 ## 🗄️ SQL Queries
-### 1. Daily Active Users Trend
+### 1. Average Daily Steps
 ```sql
-SELECT COUNT(DISTINCT Id) AS daily_users, 
-       activity_date 
-FROM affable-hydra-468812-d9.daily_activity.dailyActivity
-GROUP BY activity_date
-ORDER BY activity_date;
+SELECT Id, AVG(TotalSteps) AS avg_daily_steps FROM affable-hydra-468812-d9.daily_data.dailyactivity
+GROUP BY Id
+ORDER BY avg_daily_steps DESC; 
 ```
-➡ The result of this query shows that how many unique users were active each day. By grouping the data by activity_date ,and counting distinct users, we can measure daily user participation in the dataset. This helps identify user engagement trends over time by tracking daily active users.
-
+➡ TShows the average steps per user as a baseline activity level. Most users fall short of the 10,000-step goal, suggesting room for increased daily movement.
 ### 2. Peak Activity Hours
 ```sql
 SELECT hour, 
