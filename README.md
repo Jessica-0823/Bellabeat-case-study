@@ -31,17 +31,27 @@ Source: https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
 - Tableau (for Visualization and Dashboards)
 
 ## 📊 Key Insights
-**Comparison of average daily steps** : Calculates average daily steps for each user. It helps to identify general activity level of each person. 
-**Step Goal** : in bar chart that visualizes the average daily steps for various users whether they are reaching the goal of 10000 steps.
-**Active vs Sedentary Minutes**: This scatterplot shows the relationship between average sedentary minutes per day and average active minutes per day. The trend line added indicates the overall direction of the relationship.
-**Sleep and Sedentary Thresholds** : This scatterplot compares average sleep duration with sedentary time. 
-**Sleep Patterns** : It shows whether more time in bed leads to more actual sleep or not.
-**Weekend vs Weekday Activity** : Shows the chart where the users have reached the goal are also reaching their goal in weekends or weekdays.
-**Peak Activity Per User** : Peak activity hours shows the times of day when engagement, traffic or workload is at highest.
-**Calories Burned Per Day** : Calories burned per day is the total amount of energy your body uses in 24 hours. This includes the energy needed to keep your body alive and functioning.
-**METs Per Week** : METs per week measure the total energy spent on physical activity over seven days. They are calculated by multiplying the MET value of an activity by the time spent and summing across the week. 
-**Weekly Activity minutes by intensity zone** :  shows how much time a person spends in light, moderate and vigorous activity levels. 
-**Correlation of steps, calories and distance** :A bar chart of correlation coefficients shows the strength and direction of relationships between steps, calories burned, and distance.
+**Comparison of average daily steps** : The baseline activity level for users shows that many fall short of the 10,000-step benchmark. This highlights an opportunity for Bellabeat to encourage more daily movement.
+
+**Step Goal** : Comparing daily steps against the 10k reference line reveals that only a portion of users consistently reach the goal. Gamified challenges could motivate better performance.
+
+**Active vs Sedentary Minutes**: Users spending more than 12 hours sedentary per day generally show low active minutes. Prolonged inactivity highlights a need for regular movement breaks.
+
+**Sleep and Sedentary Thresholds** : Balanced sleep (7–9 hrs) aligns with healthier activity, while too little or too much sleep, combined with high sedentary time, suggests risks for long-term health.
+
+**Sleep Patterns** : Some users spend long hours in bed but achieve relatively less sleep, indicating poor sleep quality. This shows the need to focus on sleep efficiency.
+
+**Weekend vs Weekday Activity** : Users tend to log more steps on weekends, suggesting leisure time boosts activity. Weekdays remain a key opportunity to encourage movement.
+
+**Peak Activity Per User** : The most active time of day occurs around 6 PM, aligning with after-work routines. Evenings are ideal for activity reminders or challenges.
+
+**Calories Burned Per Day** : Daily calories burned vary widely between users, reflecting differences in movement and activity levels. Personalized calorie goals could drive healthier habits.
+
+**METs Per Week** : Most users fall short of the recommended 500–1000 MET-minutes weekly, indicating overall underactivity. This reinforces the need for structured exercise routines.
+
+**Weekly Activity minutes by intensity zone** :  Users spend most of their time in light activity and less in moderate-to-vigorous zones. Structured workouts could help improve cardiovascular health.
+
+**Correlation of steps, calories and distance** : Strong positive correlations show that more steps directly translate to more calories burned and longer distances. Encouraging step increases benefits multiple health metrics.
 
 ## 🗄️ SQL Queries
 ### 1. Average Daily Steps
@@ -50,7 +60,7 @@ SELECT Id, AVG(TotalSteps) AS avg_daily_steps FROM affable-hydra-468812-d9.daily
 GROUP BY Id
 ORDER BY avg_daily_steps DESC; 
 ```
-➡ TShows the average steps per user as a baseline activity level. Most users fall short of the 10,000-step goal, suggesting room for increased daily movement.
+➡ Shows the average steps per user as a baseline activity level. Most users fall short of the 10,000-step goal, suggesting room for increased daily movement.
 ### 2. Step Goals
 ```sql
 SELECT Id, COUNTIF(TotalSteps >= 10000) * 100.0 / COUNT(*) AS daily_goal FROM affable-hydra-468812-d9.daily_data.dailyactivity
@@ -135,7 +145,7 @@ END;
 
 ### 8. Peak Activity per User
 ```sql
-SELECT  EXTRACT(HOUR FROM ActivityHour) AS activity_hour
+SELECT  EXTRACT(HOUR FROM ActivityHour) AS activity_hour,
 ROUND(AVG(StepTotal), 2) AS avg_steps FROM affable-hydra-468812-d9.hour_data.hourly_activity
 GROUP BY activity_hour
 ORDER BY activity_hour;
@@ -207,7 +217,7 @@ This chart groups steps by day of the week. Results suggest that many users are 
 ![Peak Activity per User](peak-activity-per-user.png)
 Identifies times of day with the highest engagement. The peak occurs around 6 PM, averaging 198 steps, which aligns with after-work hours when users are more available for exercise. This suggests evenings are the best time for sending activity reminders or promoting in-app challenges.
 
-###  Calories Burned per Day
+### Calories Burned per Day
 ![Calories Burned per Day](calories-burned-per-day.png)
 Shows daily energy expenditure, which includes both basal metabolic rate (calories burned at rest) and activity-driven energy. Differences across users reflect variations in lifestyle, activity levels, and consistency. Monitoring this metric helps personalize recommendations, especially for weight management or fitness goals.
 
@@ -249,7 +259,7 @@ Breaks down user activity into light, moderate, and vigorous intensity zones. Mo
    - Encourage structured activities like jogging, cycling, or fitness classes to move beyond light activity.  
    - Provide in-app badges or rewards for hitting moderate and vigorous intensity thresholds.  
 
-## 📍Conclusion
+## 🎯 Conclusion
 This analysis highlights clear opportunities to improve user health and app engagement.  
 By focusing on consistent activity, reduced sedentary time, balanced sleep, and smarter engagement strategies, Bellabeat can encourage healthier habits while boosting app usage.  
 Implementing these recommendations will not only help users achieve better wellness outcomes but also strengthen Bellabeat’s position in the competitive wellness technology market.  
@@ -260,7 +270,7 @@ Implementing these recommendations will not only help users achieve better welln
 
 ## 🙏 Credits and Acknowledgement
 - Data source : https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
-- Project inspired by the Google Data Analytics Capstone Case Study.
+- Project inspired by the **Google Data Analytics Capstone Case Study**.
 
 
 
