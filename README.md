@@ -10,7 +10,7 @@
 - Recommendations
 - Conclusion
 - Limitations
-- Credits and Acknowledge
+- Credits and Acknowledgement
 
 ## 📌 Overview
 Bellabeat, a health-focused company, aims to better understand how users engage with their products. This case study analyzes Fitbit smart device data to uncover activity and sleep patterns, providing insights to enhance customer experience and promote healthier habits.
@@ -31,15 +31,20 @@ Source: https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
 - Tableau (for Visualization and Dashboards)
 
 ## 📊 Key Insights
-**Daily Activity Trend**: Users show a rise in activity during mid-April, highlighting potential seasonal or campaign-driven engagement.
+**Comparison of average daily steps** : Calculates average daily steps for each user. It helps to identify general activity level of each person. 
+**Step Goal** : in bar chart that visualizes the average daily steps for various users whether they are reaching the goal of 10000 steps.
+**Active vs Sedentary Minutes**: This scatterplot shows the relationship between average sedentary minutes per day and average active minutes per day. The trend line added indicates the overall direction of the relationship.
+**Sleep and Sedentary Thresholds** : This scatterplot compares average sleep duration with sedentary time. 
+**Sleep Patterns** : It shows whether more time in bed leads to more actual sleep or not.
+**Weekend vs Weekday Activity** : Shows the chart where the users have reached the goal are also reaching their goal in weekends or weekdays.
+**Peak Activity Per User** : Peak activity hours shows the times of day when engagement, traffic or workload is at highest.
+**Calories Burned Per Day** : Calories burned per day is the total amount of energy your body uses in 24 hours. This includes the energy needed to keep your body alive and functioning.
+**METs Per Week** : METs per week measure the total energy spent on physical activity over seven days. They are calculated by multiplying the MET value of an activity by the time spent and summing across the week. 
+**Weekly Activity minutes by intensity zone** :  shows how much time a person spends in light, moderate and vigorous activity levels. 
 
-**Peak Activity Hours**: Activity is lowest in the morning and peaks in the evening, showing preferred active hours.
 
-**Average Sleep Hours**: Users average 6–7 hours of sleep, which is below the recommended 7–9 hours for adults.
 
-**Monthly Sleep patterns**: Users spend more time in bed than actual hours asleep, suggesting inefficiency and possible restless sleep.
 
-**Average Daily Steps by Day of Week**: Users take the fewest steps on Sundays and the most on Saturdays, indicating weekend activity patterns.
 
 ## 🗄️ SQL Queries
 ### 1. Daily Active Users Trend
