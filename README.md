@@ -158,7 +158,6 @@ SUM(METs) AS weekly_met_minutes,
 SUM(METs) / (7*1440) AS mets_per_min_in_week FROM affable-hydra-468812-d9.minute_data.minute_activity
 GROUP BY Id, week_activity
 ORDER BY mets_per_min_in_week DESC;
-
 ```
 ➡ Summarizes weekly energy expenditure (METs). Most users stay below the 500–1000 MET-minutes recommended for good health, signaling underactivity.
 
@@ -177,37 +176,83 @@ ORDER BY activity_date;
 Below are some charts created in Tableau:
 
 ### Average Daily Steps
-![Daily Active Users](daily-active-users-trend.png)
-This chart shows the overall trend of active users as a line chart. We can see fluctuations from up to down in activity. Tracking this helps to identify  whether the user engagements is increasing over time and highlights day with high or low activity.
+![Average Daily Steps](average-daily-steps.png)
+Shows the baseline activity level of each user by calculating their average daily steps. Many users fall short of the 10,000-step benchmark, which is widely considered a standard goal for maintaining an active lifestyle. This highlights an opportunity for interventions such as challenges or motivational reminders to encourage higher activity levels.
 
-### Peak Activity Hours
-![Peak Activity Users](peak-activity-hours.png)
-This chart shows the average number of steps from hour of day as a line chart. The peaks indicate when most users are active (for example, late morning and early evening). These insights can guide Bellabeat to schedule reminders or challenges during the most active hours.  
+### Step Goals
+![Step Goals](step-goal.png)
+This bar chart compares daily step counts against the 10,000-step reference line. The visualization makes it easy to see which users consistently meet or miss the goal. Since many users fall below this threshold, introducing gamification, streak tracking, or step challenges could improve user engagement.  
 
+### Correlation Between Steps, Calories, and Distance
+![Correlation Between Steps, Calories, and Distance](correlation.png)
+The chart displays correlation coefficients between three metrics: steps, calories burned, and distance traveled. Strong positive correlations confirm that as users walk more steps, they also cover greater distance and burn more calories. This validates Fitbit’s tracking metrics and shows that promoting step goals has a direct link to calorie expenditure.
 
-### Average Sleep Duration
-![Average Sleep Hours](average-sleep-duration.png)
-This chart explains the average sleep hours of users from day to day as a line chart. Many users sleep less than the average sleep hours. Short sleep duration can affect health and wellness, indicating that Bellabeat could focus on features that improve sleep quality.  
+### Active vs Sedentary Time
+![Active vs Sedentary Time](active-vs-sedentary.png)
+This scatterplot compares sedentary minutes (x-axis) with active minutes (y-axis). A negative trend suggests that users who spend more time sitting tend to be less active overall. Prolonged sedentary time (>12 hrs/day) is linked to health risks such as obesity, diabetes, and cardiovascular issues. Encouraging users to take movement breaks could reduce these risks.
 
+### Sleep and Sedentary Thresholds
+![Sleep and Sedentary Thresholds ](sleep-and-sedentary.png)
+This chart compares sleep duration with sedentary minutes. Users with balanced sleep (7–9 hrs) tend to align with healthier activity, while excessive sedentary time often overlaps with poor sleep patterns. Sleeping less than 7 hours leads to fatigue and reduced focus, while oversleeping may indicate low activity or underlying health concerns.
 
-### Average Monthly Sleep Patterns
-![Average Monthly Sleep Patterns](avg-sleep-vs-time-in-bed.png)
-This chart highlights sleep patterns across different months as a bar chart and line chart. The line chart represents time in bed and bar chart represents avg sleep hours. Understanding these trends can help Bellabeat design seasonal wellness campaigns.
+### Sleep Patterns
+![Sleep Patterns](sleep-patterns.png)
+A dual-axis chart comparing average time in bed (line) with actual sleep duration (bars). Some users show a large gap between time in bed and sleep, suggesting inefficient or disturbed sleep. Others show smaller gaps, reflecting more restorative rest. This highlights the importance of promoting sleep quality, not just time spent in bed.
 
-### Average Daily Steps by Day of Week
-![Average Daily Steps by Day of week](avg-steps-by-week.png)
-This chart shows the average number of steps taken on each day of the week as Bar chart. It reveals which days users are more active (e.g., weekdays vs weekends). Bellabeat can use this insight to encourage users to stay active on days with lower step counts.  
+### Weekend vs. Weekday Activity
+![Weekend vs Weekday Activity](weekend-vs-weekday-activity.png)
+This chart groups steps by day of the week. Results suggest that many users are more active on weekends, likely due to more leisure time and fewer work constraints. This insight can guide app notifications — for example, motivating weekday activity to balance out sedentary office hours.
+
+### Peak Activity per User
+![Peak Activity per User](peak-activity-per-user.png)
+Identifies times of day with the highest engagement. The peak occurs around 6 PM, averaging 198 steps, which aligns with after-work hours when users are more available for exercise. This suggests evenings are the best time for sending activity reminders or promoting in-app challenges.
+
+###  Calories Burned per Day
+![Calories Burned per Day](calories-burned-per-day.png)
+Shows daily energy expenditure, which includes both basal metabolic rate (calories burned at rest) and activity-driven energy. Differences across users reflect variations in lifestyle, activity levels, and consistency. Monitoring this metric helps personalize recommendations, especially for weight management or fitness goals.
+
+### METs per Week
+![METs per Week](mets-per-week.png)
+METs (Metabolic Equivalent of Task) measure overall energy expenditure across the week. Guidelines recommend 500–1000 MET-minutes weekly for maintaining good health. Many users fall below this range, suggesting underactivity. This reinforces the need for consistent, moderate-to-vigorous activity to achieve health benefits.
+
+### Weekly Activity Minutes by Intensity Zone
+![Weekly Activity Minutes by Intensity Zone](weekly-activity-minutes-by-intensity-zone.png)
+Breaks down user activity into light, moderate, and vigorous intensity zones. Most users spend time in light activity but struggle to reach moderate-to-vigorous levels that are recommended for cardiovascular health. Encouraging workouts or structured activities could help bridge this gap.
 
 ## 💡 Recommendations
-Based on the visualizations. here are some recommendations for Bellabeat :
-- Encourage users to reach 10,000+ steps daily using app notifications and small rewards.
-- Introduce sleep improvement programs, since users sleep below recommended levels.
-- Launch challenges during peak activity hours (late morning, evening) to maximize engagement.
-- Provide personalized recommendations based on each user’s activity and sleep trends.
+
+1. **Increase Daily Steps (Charts 1 & 2)**  
+   - Launch app challenges or streak rewards to motivate users to consistently hit the **10,000-step goal**.  
+   - Provide personalized step goals for users who are far below average to make targets feel more achievable.  
+
+2. **Encourage Movement Breaks (Charts 4 & 5)**  
+   - Send reminders to reduce sedentary time, especially for users sitting **>12 hours/day**.  
+   - Suggest quick 5–10 minute walks or stretching sessions during work breaks to reduce health risks.  
+
+3. **Promote Balanced Sleep (Charts 5 & 6)**  
+   - Guide users toward **7–9 hours of quality sleep** with bedtime reminders and sleep hygiene tips.  
+   - Highlight inefficient sleep patterns (time in bed vs. actual sleep) and encourage relaxation techniques.  
+
+4. **Target Weekday Activity (Chart 7)**  
+   - Since weekends show higher activity, introduce weekday challenges or “midweek motivators” to balance activity levels.  
+   - Encourage users to incorporate **short weekday workouts** or active commuting options.  
+
+5. **Leverage Peak Hours (Chart 8)**  
+   - Use push notifications around **6 PM**, when activity is naturally higher, to boost engagement.  
+   - Suggest end-of-day workouts, group challenges, or community leaderboards at this time.  
+
+6. **Personalize Calorie & MET Goals (Charts 9 & 10)**  
+   - Educate users about the **500–1000 MET-minutes/week guideline** and provide weekly progress tracking.  
+   - Adjust calorie burn targets based on user baseline to encourage steady improvements.  
+
+7. **Promote Moderate-to-Vigorous Activity (Chart 11)**  
+   - Encourage structured activities like jogging, cycling, or fitness classes to move beyond light activity.  
+   - Provide in-app badges or rewards for hitting moderate and vigorous intensity thresholds.  
 
 ## 📍Conclusion
-These findings help Bellabeat identify where users struggle with insufficient sleep and activity and highlight opportunities to improve engagement through personalized programs, challenges, and habit-forming nudges.
-
+This analysis highlights clear opportunities to improve user health and app engagement.  
+By focusing on consistent activity, reduced sedentary time, balanced sleep, and smarter engagement strategies, Bellabeat can encourage healthier habits while boosting app usage.  
+Implementing these recommendations will not only help users achieve better wellness outcomes but also strengthen Bellabeat’s position in the competitive wellness technology market.  
 ## ⚠️ Limitations
 - This dataset represents small set of Bellabeat users, so findings may not apply to all the users.
 - Some activity has missing values, which may affect overall accuracy.
