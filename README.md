@@ -43,9 +43,6 @@ Source: https://www.kaggle.com/datasets/arashnic/fitbit from Kaggle.
 **Weekly Activity minutes by intensity zone** :  shows how much time a person spends in light, moderate and vigorous activity levels. 
 **Correlation of steps, calories and distance** :A bar chart of correlation coefficients shows the strength and direction of relationships between steps, calories burned, and distance.
 
-
-
-
 ## 🗄️ SQL Queries
 ### 1. Average Daily Steps
 ```sql
@@ -176,24 +173,10 @@ ORDER BY activity_date;
 ```
 ➡ Breaks activity into light, moderate, and vigorous zones. Many users spend more time in light activity, falling short of moderate-to-vigorous levels recommended by health guidelines.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 📊 Visuals
 Below are some charts created in Tableau:
 
-### Daily Active Users
+### Average Daily Steps
 ![Daily Active Users](daily-active-users-trend.png)
 This chart shows the overall trend of active users as a line chart. We can see fluctuations from up to down in activity. Tracking this helps to identify  whether the user engagements is increasing over time and highlights day with high or low activity.
 
